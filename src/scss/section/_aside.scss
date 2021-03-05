@@ -1,0 +1,141 @@
+aside {
+  position: fixed;
+  top: 20vh;
+  right: 5vw;
+  height: 30vh;
+  padding: 20px;
+  width: 100px;
+  .sun {
+    opacity: 0.85;
+    cursor: pointer;
+    &:hover {
+      opacity: 1;
+    }
+  }
+  .moon {
+    opacity: 0;
+    cursor: pointer;
+    pointer-events: none;
+  }
+}
+.sun {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #f2b826;
+  transition: all 0.35s cubic-bezier(0.05, 0.05, 0.1, 0.3);
+  transition-delay: 0.25s;
+  top: 0;
+  &:before {
+    position: absolute;
+    content: "";
+    width: 36px;
+    height: 36px;
+    left: 12px;
+    top: 12px;
+    border-radius: 50%;
+    background-color: #f28923;
+    z-index: 1;
+  }
+  .spear {
+    position: absolute;
+    background-color: #f5d266;
+    width: 16px;
+    height: 16px;
+    border-radius: 30% 15% 30% 50%;
+    &:nth-child(1) {
+      top: -26px;
+      left: 22px;
+      transform: rotate(-45deg);
+    }
+    &:nth-child(2) {
+      top: -10px;
+      left: 56px;
+    }
+    &:nth-child(3) {
+      top: 22px;
+      left: 70px;
+      transform: rotate(45deg);
+    }
+    &:nth-child(4) {
+      top: 54px;
+      left: 56px;
+      transform: rotate(90deg);
+    }
+    &:nth-child(5) {
+      top: 70px;
+      left: 22px;
+      transform: rotate(135deg);
+    }
+    &:nth-child(6) {
+      top: 54px;
+      left: -10px;
+      transform: rotate(180deg);
+    }
+    &:nth-child(7) {
+      top: 22px;
+      left: -26px;
+      transform: rotate(225deg);
+    }
+    &:nth-child(8) {
+      top: -10px;
+      left: -10px;
+      transform: rotate(270deg);
+    }
+  }
+}
+.moon {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #ffcc00;
+  transition: all 0.35s cubic-bezier(0.05, 0.05, 0.1, 0.3);
+  transition-delay: 0s;
+  top: 35vh;
+  opacity: 0;
+  &:before {
+    position: absolute;
+    content: "";
+    width: 40px;
+    height: 40px;
+    background: #fff;
+    left: 0;
+    top: 0;
+    border-radius: 50%;
+    opacity: 0;
+    transition: all 0.6s cubic-bezier(0.05, 0.05, 0.1, 0.3);
+  }
+  .star {
+    position: absolute;
+    left: 0;
+    top: 0;
+    .angle {
+      border: solid transparent;
+      border-top: 6px solid #ffcc00;
+      border-left-width: 9px;
+      border-right-width: 9px;
+      border-bottom: 0;
+      position: absolute;
+      border-radius: 8px;
+      &:nth-child(1) {
+        transform: rotate(180deg);
+      }
+      &:nth-child(2) {
+        transform: rotate(105deg);
+      }
+      &:nth-child(3) {
+        transform: rotate(255deg);
+      }
+    }
+  }
+}
+@include mobile-lg {
+  aside {
+    z-index: 20;
+    top: -36px;
+    right: 0;
+    transform: scale(0.5);
+  }
+}

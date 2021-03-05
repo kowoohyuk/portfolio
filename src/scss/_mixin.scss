@@ -1,0 +1,20 @@
+@mixin labtop {
+  @media (max-width: #{$labtop}) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media (max-width: #{$tablet}) {
+    @content;
+  }
+}
+@mixin mobile-lg {
+  @media (max-width: #{$mobile-lg}) {
+    @content;
+  }
+}
+@mixin mobile-sm {
+  @media (max-width: #{$mobile-sm}) {
+    @content;
+  }
+}
