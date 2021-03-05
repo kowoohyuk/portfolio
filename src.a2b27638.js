@@ -117,7 +117,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+})({"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
 function getBundleURLCached() {
@@ -149,7 +149,7 @@ function getBaseURL(url) {
 
 exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
-},{}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
+},{}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
 var bundle = require('./bundle-url');
 
 function updateLink(link) {
@@ -184,7 +184,100 @@ function reloadCSS() {
 }
 
 module.exports = reloadCSS;
-},{"./bundle-url":"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./bundle-url":"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"src/index.scss":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/index.js":[function(require,module,exports) {
+"use strict";
+
+require("./index.scss");
+
+(function () {
+  var textInOutItems = document.querySelector(".text-in-out-items").children;
+  var body = document.querySelector("body");
+  var horizonScroll = document.getElementById("horizonScroll");
+  var sun = document.querySelector(".sun");
+  var moon = document.querySelector(".moon");
+  var anchor = document.getElementsByClassName("section-anchor");
+  var section = document.getElementsByTagName("section");
+
+  var textInOut = function textInOut() {
+    var target = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+    var idx = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+    var next = target.length === idx + 1 ? 0 : idx + 1;
+    target[idx].classList.replace("ani__text-in", "ani__text-out");
+    target[idx].classList.remove("active");
+    target[next].classList.replace("ani__text-out", "ani__text-in");
+    target[next].classList.add("active");
+    setTimeout(function () {
+      textInOut(target, next);
+    }, 2000);
+  };
+
+  var horizonScrolling = function horizonScrolling(target) {
+    var maxScrollY = body.scrollHeight - window.innerHeight;
+    window.addEventListener("scroll", function () {
+      var nowScrollY = window.scrollY;
+      horizonStatusChange(nowScrollY, maxScrollY);
+    });
+
+    var horizonStatusChange = function horizonStatusChange(now, max) {
+      target.style.opacity = now / max + 0.5;
+      target.style.width = now / max * 100 + "%";
+    };
+  };
+
+  var handleDayNight = function handleDayNight() {
+    body.classList.toggle("dark");
+  };
+
+  var handleAnchorActive = function handleAnchorActive(index) {
+    Array.prototype.forEach.call(anchor, function (elem, idx) {
+      if (index === idx) {
+        elem.classList.add('active');
+      } else {
+        elem.classList.remove('active');
+      }
+    });
+  };
+
+  var handleScroll = function handleScroll() {
+    var scrollY = window.scrollY;
+    var editHeight = window.innerHeight / 3;
+    Array.prototype.forEach.call(section, function (elem, index) {
+      if (scrollY + editHeight >= elem.offsetTop) {
+        handleAnchorActive(index);
+        return;
+      }
+    });
+  };
+
+  var handleAnchor = function handleAnchor(index) {
+    return function () {
+      window.scroll({
+        top: section[index].offsetTop,
+        behavior: 'smooth'
+      });
+    };
+  };
+
+  var init = function init() {
+    horizonScrolling(horizonScroll);
+    textInOut(textInOutItems);
+    sun.addEventListener("click", handleDayNight);
+    moon.addEventListener("click", handleDayNight);
+    window.addEventListener("scroll", handleScroll);
+    Array.prototype.forEach.call(anchor, function (elem, index) {
+      elem.addEventListener("click", handleAnchor(index));
+    });
+    handleScroll();
+  };
+
+  init();
+})();
+},{"./index.scss":"src/index.scss"}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -212,7 +305,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57776" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58119" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -388,5 +481,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js"], null)
-//# sourceMappingURL=/index.js.map
+},{}]},{},["../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","src/index.js"], null)
+//# sourceMappingURL=/src.a2b27638.js.map

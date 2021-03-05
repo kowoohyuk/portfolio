@@ -140,16 +140,6 @@ body {
 .grid--three {
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
 
-@-webkit-keyframes shake {
-  0% {
-    transform: rotate(0deg); }
-  33% {
-    transform: rotate(2deg); }
-  66% {
-    transform: rotate(0deg); }
-  100% {
-    transform: rotate(-2deg); } }
-
 @keyframes shake {
   0% {
     transform: rotate(0deg); }
@@ -160,25 +150,11 @@ body {
   100% {
     transform: rotate(-2deg); } }
 
-@-webkit-keyframes underline {
-  0% {
-    transform: rotate(0deg); }
-  100% {
-    transform: rotate(360deg); } }
-
 @keyframes underline {
   0% {
     transform: rotate(0deg); }
   100% {
     transform: rotate(360deg); } }
-
-@-webkit-keyframes text-in {
-  0% {
-    transform: translateY(-2rem);
-    opacity: 0; }
-  100% {
-    transform: translateY(0);
-    opacity: 1; } }
 
 @keyframes text-in {
   0% {
@@ -188,14 +164,6 @@ body {
     transform: translateY(0);
     opacity: 1; } }
 
-@-webkit-keyframes text-out {
-  0% {
-    transform: translateY(0);
-    opacity: 1; }
-  100% {
-    transform: translateY(2rem);
-    opacity: 0; } }
-
 @keyframes text-out {
   0% {
     transform: translateY(0);
@@ -204,25 +172,11 @@ body {
     transform: translateY(2rem);
     opacity: 0; } }
 
-@-webkit-keyframes sun {
-  0% {
-    transform: rotate(0deg); }
-  100% {
-    transform: rotate(360deg); } }
-
 @keyframes sun {
   0% {
     transform: rotate(0deg); }
   100% {
     transform: rotate(360deg); } }
-
-@-webkit-keyframes sun-circle {
-  0% {
-    transform: scale(1); }
-  50% {
-    transform: scale(1.2); }
-  100% {
-    transform: scale(1); } }
 
 @keyframes sun-circle {
   0% {
@@ -232,14 +186,6 @@ body {
   100% {
     transform: scale(1); } }
 
-@-webkit-keyframes star {
-  0% {
-    top: 0px; }
-  50% {
-    top: 10px; }
-  100% {
-    top: 0px; } }
-
 @keyframes star {
   0% {
     top: 0px; }
@@ -247,14 +193,6 @@ body {
     top: 10px; }
   100% {
     top: 0px; } }
-
-@-webkit-keyframes pulse {
-  0% {
-    transform: scale(0.7, 0.7); }
-  50% {
-    transform: scale(1.2, 1.2); }
-  100% {
-    transform: scale(0.7, 0.7); } }
 
 @keyframes pulse {
   0% {
@@ -265,91 +203,57 @@ body {
     transform: scale(0.7, 0.7); } }
 
 .ani__underline:before {
-  -webkit-animation-name: underline;
-          animation-name: underline;
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
-  -webkit-animation-timing-function: linear;
-          animation-timing-function: linear; }
+  animation-name: underline;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear; }
 
 .ani__shake:hover, .ani__shake.active {
-  -webkit-animation-name: shake;
-          animation-name: shake;
-  -webkit-animation-delay: 0.5s;
-          animation-delay: 0.5s;
-  -webkit-animation-duration: 0.18s;
-          animation-duration: 0.18s;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite; }
+  animation-name: shake;
+  animation-delay: 0.5s;
+  animation-duration: 0.18s;
+  animation-iteration-count: infinite; }
 
 .ani__text-in {
-  -webkit-animation-name: text-in;
-          animation-name: text-in;
-  -webkit-animation-duration: 0.5s;
-          animation-duration: 0.5s; }
+  animation-name: text-in;
+  animation-duration: 0.5s; }
 
 .ani__text-out {
-  -webkit-animation-name: text-out;
-          animation-name: text-out;
-  -webkit-animation-duration: 0.5s;
-          animation-duration: 0.5s; }
+  animation-name: text-out;
+  animation-duration: 0.5s; }
 
 .ani__sun {
-  -webkit-animation-name: sun;
-          animation-name: sun;
-  -webkit-animation-duration: 8s;
-          animation-duration: 8s;
-  -webkit-animation-timing-function: linear;
-          animation-timing-function: linear;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite; }
+  animation-name: sun;
+  animation-duration: 8s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite; }
   .ani__sun:before {
-    -webkit-animation-name: sun-circle;
-            animation-name: sun-circle;
-    -webkit-animation-duration: 3s;
-            animation-duration: 3s;
-    -webkit-animation-timing-function: linear;
-            animation-timing-function: linear;
-    -webkit-animation-iteration-count: infinite;
-            animation-iteration-count: infinite; }
+    animation-name: sun-circle;
+    animation-duration: 3s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite; }
 
 .ani__moon .star {
-  -webkit-animation-name: star;
-          animation-name: star;
-  -webkit-animation-duration: 2.5s;
-          animation-duration: 2.5s;
-  -webkit-animation-timing-function: linear;
-          animation-timing-function: linear;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite; }
+  animation-name: star;
+  animation-duration: 2.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite; }
 
 .ani__pulse:after {
-  -webkit-animation: pulse 2s ease-in-out;
-          animation: pulse 2s ease-in-out;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite; }
+  animation: pulse 2s ease-in-out;
+  animation-iteration-count: infinite; }
 
 body .ani__day .sun:hover {
-  -webkit-animation-name: shake;
-          animation-name: shake;
-  -webkit-animation-delay: 0.15s;
-          animation-delay: 0.15s;
-  -webkit-animation-duration: 0.12s;
-          animation-duration: 0.12s;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite; }
+  animation-name: shake;
+  animation-delay: 0.15s;
+  animation-duration: 0.12s;
+  animation-iteration-count: infinite; }
 
 body .ani__day .moon:hover {
-  -webkit-animation-name: shake;
-          animation-name: shake;
-  -webkit-animation-delay: 0.15s;
-          animation-delay: 0.15s;
-  -webkit-animation-duration: 0.12s;
-          animation-duration: 0.12s;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite; }
+  animation-name: shake;
+  animation-delay: 0.15s;
+  animation-duration: 0.12s;
+  animation-iteration-count: infinite; }
 
 header {
   position: fixed;
